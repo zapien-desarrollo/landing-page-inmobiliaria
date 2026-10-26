@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cerro Propiedades · Inmobiliaria en Mendoza</title>
+  <meta name="description" content="Casas, departamentos y terrenos en venta y alquiler en Mendoza. Tasaciones sin cargo y emprendimientos en pozo." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="demo-bar">
+    Sitio de demostración desarrollado por <a href="https://landing-page-josequispe.vercel.app" target="_blank" rel="noopener">Jose Quispe</a>. Propiedades y datos ficticios.
+  </div>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Cerro Propiedades, inicio">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26 12 10l5 8 4-5 9 13Z" fill="currentColor"/><circle cx="24" cy="7" r="3" fill="var(--accent)"/></svg>
+        <span>Cerro <b>Propiedades</b></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
+      <nav class="nav" id="nav">
+        <a href="#propiedades">Propiedades</a>
+        <a href="#emprendimientos">Emprendimientos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn btn--accent btn--sm" href="#tasacion">Tasá tu propiedad</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO + BUSCADOR -->
+    <section class="hero">
+      <img class="hero__bg" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=70" alt="" fetchpriority="high" />
+      <div class="container hero__content">
+        <p class="eyebrow eyebrow--light">Inmobiliaria en Mendoza desde 2004</p>
+        <h1>Encontrá el lugar donde empieza tu próxima etapa</h1>
+        <p class="hero__lead">Casas, departamentos, terrenos y locales en venta y alquiler en el Gran Mendoza y el Valle de Uco.</p>
+
+        <form class="search" id="hero-search">
+          <div class="search__tabs" role="tablist">
+            <button type="button" class="search__tab is-active" data-op="venta" role="tab" aria-selected="true">Comprar</button>
+            <button type="button" class="search__tab" data-op="alquiler" role="tab" aria-selected="false">Alquilar</button>
+            <button type="button" class="search__tab" data-op="temporario" role="tab" aria-selected="false">Temporario</button>
+          </div>
+          <div class="search__fields">
+            <label class="field">
+              <span>Tipo de propiedad</span>
+              <select name="tipo">
+                <option value="">Todas</option>
+                <option value="casa">Casa</option>
+                <option value="departamento">Departamento</option>
+                <option value="duplex">Dúplex</option>
+                <option value="terreno">Terreno</option>
+                <option value="oficina">Oficina</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Localidad</span>
+              <select name="localidad" data-localidades>
+                <option value="">Todas</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Dormitorios</span>
+              <select name="dormitorios">
+                <option value="0">Indistinto</option>
+                <option value="1">1 o más</option>
+                <option value="2">2 o más</option>
+                <option value="3">3 o más</option>
+                <option value="4">4 o más</option>
+              </select>
+            </label>
+            <button class="btn btn--accent search__submit" type="submit">
+              <svg class="icon"><use href="#i-search"/></svg> Buscar
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CIFRAS -->
+    <section class="stats">
+      <div class="container stats__grid">
+        <div><strong data-count="20">0</strong><span>años en el mercado</span></div>
+        <div><strong data-count="1500" data-plus>0</strong><span>operaciones cerradas</span></div>
+        <div><strong data-count="320">0</strong><span>propiedades en cartera</span></div>
+        <div><strong data-count="98" data-suffix="%">0</strong><span>clientes que nos recomiendan</span></div>
+      </div>
+    </section>
+
+    <!-- DESTACADAS -->
+    <section class="section" id="destacadas">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Selección de la semana</p>
+            <h2>Propiedades destacadas</h2>
+          </div>
+          <a class="link-arrow" href="#propiedades">Ver todas <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="carousel" id="featured"></div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="section section--tint" id="propiedades">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Catálogo</p>
+            <h2>Todas las propiedades</h2>
+          </div>
+        </div>
+
+        <form class="filters" id="filters">
+          <div class="chips" role="group" aria-label="Operación">
+            <button type="button" class="chip is-active" data-op="">Todas</button>
+            <button type="button" class="chip" data-op="venta">Venta</button>
+            <button type="button" class="chip" data-op="alquiler">Alquiler</button>
+            <button type="button" class="chip" data-op="temporario">Temporario</button>
+          </div>
+          <div class="filters__row">
+            <label class="field field--compact">
+              <span>Tipo</span>
+              <select name="tipo">
+                <option value="">Todos</option>
+                <option value="casa">Casa</option>
+                <option value="departamento">Departamento</option>
+                <option value="duplex">Dúplex</option>
+                <option value="terreno">Terreno</option>
+                <option value="oficina">Oficina</option>
+              </select>
+            </label>
+            <label class="field field--compact">
+              <span>Localidad</span>
+              <select name="localidad" data-localidades>
+                <option value="">Todas</option>
+              </select>
+            </label>
+            <label class="field field--compact">
+              <span>Dormitorios</span>
+              <select name="dormitorios">
+                <option value="0">Indistinto</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+              </select>
+            </label>
+            <label class="field field--compact">
+              <span>Ordenar</span>
+              <select name="orden">
+                <option value="recientes">Más recientes</option>
+                <option value="menor">Menor precio</option>
+                <option value="mayor">Mayor precio</option>
+                <option value="superficie">Mayor superficie</option>
+              </select>
+            </label>
+            <button type="button" class="btn btn--ghost btn--sm" id="fav-toggle" aria-pressed="false">
+              <svg class="icon"><use href="#i-heart"/></svg> Favoritas
+            </button>
+          </div>
+        </form>
+
+        <p class="results" id="results-count" aria-live="polite"></p>
+        <div class="grid" id="catalog"></div>
+        <div class="empty" id="empty" hidden>
+          <p>No encontramos propiedades con esos filtros.</p>
+          <button class="btn btn--ghost btn--sm" type="button" id="clear-filters">Limpiar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMPRENDIMIENTO EN POZO -->
+    <section class="section" id="emprendimientos">
+      <div class="container project">
+        <div class="project__media">
+          <img id="project-img" alt="Render del edificio Torre Aconcagua" loading="lazy" />
+          <span class="badge badge--accent project__badge">En construcción</span>
+        </div>
+        <div class="project__body">
+          <p class="eyebrow">Emprendimiento en pozo</p>
+          <h2 id="project-name"></h2>
+          <p class="muted" id="project-loc"></p>
+          <p>Invertí en pozo con cuotas en pesos y entrega en dólares congelada. Unidades pensadas para vivir o para renta, a cuatro cuadras de la Arístides.</p>
+          <dl class="project__facts">
+            <div><dt>Unidades</dt><dd id="project-units"></dd></div>
+            <div><dt>Entrega estimada</dt><dd id="project-date"></dd></div>
+            <div><dt>Desde</dt><dd id="project-price"></dd></div>
+          </dl>
+          <div class="progress">
+            <div class="progress__label"><span>Avance de obra</span><b id="project-progress-label"></b></div>
+            <div class="progress__bar"><span id="project-progress"></span></div>
+          </div>
+          <ul class="tags" id="project-amenities"></ul>
+          <div class="btn-row">
+            <button class="btn btn--primary" data-demo="Te enviamos los planos y la lista de precios por WhatsApp.">Pedir planos y precios</button>
+            <a class="btn btn--ghost" href="#contacto">Agendar visita al showroom</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section section--dark" id="servicios">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="eyebrow eyebrow--light">Qué hacemos</p>
+          <h2>Te acompañamos en toda la operación</h2>
+        </div>
+        <div class="services">
+          <article class="service">
+            <svg class="icon icon--lg"><use href="#i-key"/></svg>
+            <h3>Venta</h3>
+            <p>Publicamos tu propiedad en los principales portales, filtramos interesados y te acompañamos hasta la escritura.</p>
+          </article>
+          <article class="service">
+            <svg class="icon icon--lg"><use href="#i-home"/></svg>
+            <h3>Alquiler</h3>
+            <p>Contratos según la normativa vigente, verificación de garantías y seguro de caución para inquilinos.</p>
+          </article>
+          <article class="service">
+            <svg class="icon icon--lg"><use href="#i-doc"/></svg>
+            <h3>Administración</h3>
+            <p>Cobro de alquileres, ajustes, liquidación mensual y gestión de reparaciones. Vos no te ocupás de nada.</p>
+          </article>
+          <article class="service">
+            <svg class="icon icon--lg"><use href="#i-chart"/></svg>
+            <h3>Tasaciones</h3>
+            <p>Valuación profesional con comparables de mercado, firmada por martillero matriculado. Sin cargo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASACIÓN -->
+    <section class="section" id="tasacion">
+      <div class="container appraisal">
+        <div class="appraisal__text">
+          <p class="eyebrow">Tasación sin cargo</p>
+          <h2>¿Cuánto vale tu propiedad hoy?</h2>
+          <p>Completá estos datos y un martillero te contacta en menos de 24 h con una tasación basada en ventas reales de tu zona.</p>
+          <ul class="checks">
+            <li><svg class="icon"><use href="#i-check"/></svg> Visita y tasación sin costo</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Informe con propiedades comparables</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Sin compromiso de exclusividad</li>
+          </ul>
+        </div>
+        <form class="card form" data-demo-form="¡Listo! Recibimos tu pedido de tasación. Un martillero te va a escribir en menos de 24 h.">
+          <div class="form__grid">
+            <label class="field"><span>Nombre y apellido</span><input required name="nombre" autocomplete="name" /></label>
+            <label class="field"><span>Teléfono</span><input required name="tel" type="tel" autocomplete="tel" inputmode="tel" /></label>
+            <label class="field">
+              <span>Tipo de propiedad</span>
+              <select name="tipo"><option>Casa</option><option>Departamento</option><option>Dúplex</option><option>Terreno</option><option>Local / Oficina</option></select>
+            </label>
+            <label class="field">
+              <span>Quiero</span>
+              <select name="objetivo"><option>Vender</option><option>Alquilar</option><option>Solo saber cuánto vale</option></select>
+            </label>
+            <label class="field field--full"><span>Dirección aproximada</span><input required name="direccion" placeholder="Ej: Barrio Bombal, Godoy Cruz" /></label>
+            <label class="field"><span>Superficie cubierta (m²)</span><input name="m2" type="number" min="0" inputmode="numeric" /></label>
+            <label class="field"><span>Dormitorios</span><input name="dorm" type="number" min="0" inputmode="numeric" /></label>
+          </div>
+          <button class="btn btn--primary btn--block" type="submit">Solicitar tasación</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- NOSOTROS + TESTIMONIOS -->
+    <section class="section section--tint" id="nosotros">
+      <div class="container about">
+        <div class="about__media">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=70" alt="Fachada de una casa vendida por la inmobiliaria" loading="lazy" />
+        </div>
+        <div>
+          <p class="eyebrow">Nosotros</p>
+          <h2>Una inmobiliaria de barrio, con alcance de toda la provincia</h2>
+          <p>Somos un equipo de martilleros y corredores públicos matriculados que conoce Mendoza cuadra por cuadra. Atendemos personalmente cada consulta, porque detrás de cada operación hay una familia, un ahorro o un proyecto.</p>
+          <div class="team">
+            <div class="person"><span class="avatar">LM</span><div><b>Laura Méndez</b><small>Martillera · Mat. 1234</small></div></div>
+            <div class="person"><span class="avatar">DR</span><div><b>Diego Rossi</b><small>Corredor inmobiliario</small></div></div>
+            <div class="person"><span class="avatar">CF</span><div><b>Carla Funes</b><small>Alquileres y administración</small></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="testimonials">
+          <blockquote class="testimonial">
+            <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>“Vendimos la casa de mis viejos en menos de dos meses. Nos explicaron todo, hasta los gastos de escritura.”</p>
+            <footer>Marcela G. · Godoy Cruz</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>“Alquilo hace tres años con ellos. Cualquier problema en el depto lo resuelven en el día.”</p>
+            <footer>Tomás R. · Ciudad</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>“Compramos en pozo en Torre Aconcagua. Nos mandan fotos del avance de obra todos los meses.”</p>
+            <footer>Familia Ortiz · Luján de Cuyo</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="preguntas">
+      <div class="container container--narrow">
+        <div class="section__head section__head--center">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Lo que más nos consultan</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>¿Qué necesito para alquilar?</summary>
+            <p>DNI, recibos de sueldo o constancia de ingresos y una garantía: propietaria, seguro de caución o garantía bancaria. Te ayudamos a tramitar el seguro en el día.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto cobran de comisión?</summary>
+            <p>En ventas, el 3 % a cada parte. En alquileres, lo que fija el Colegio de Corredores de Mendoza. Siempre te lo informamos antes de firmar cualquier cosa.</p>
+          </details>
+          <details>
+            <summary>¿La tasación tiene costo?</summary>
+            <p>No. Visitamos la propiedad y te entregamos un informe con el valor estimado y propiedades comparables, sin compromiso.</p>
+          </details>
+          <details>
+            <summary>¿Se puede comprar con crédito hipotecario?</summary>
+            <p>Sí. Marcamos en cada ficha las propiedades aptas crédito y te orientamos con los bancos que están otorgando préstamos.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section--tint" id="contacto">
+      <div class="container contact">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Vení a conocernos</h2>
+          <ul class="contact__list">
+            <li><svg class="icon"><use href="#i-pin"/></svg> Av. San Martín 1520, Ciudad de Mendoza</li>
+            <li><svg class="icon"><use href="#i-phone"/></svg> (261) 400-0000</li>
+            <li><svg class="icon"><use href="#i-mail"/></svg> hola@cerropropiedades.com.ar</li>
+            <li><svg class="icon"><use href="#i-clock"/></svg> Lunes a viernes de 9 a 18 h · Sábados de 10 a 13 h</li>
+          </ul>
+          <div class="map">
+            <iframe title="Mapa de la oficina" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-68.848%2C-32.896%2C-68.832%2C-32.884&amp;layer=mapnik&amp;marker=-32.890%2C-68.840"></iframe>
+          </div>
+        </div>
+        <form class="card form" data-demo-form="¡Gracias! Recibimos tu mensaje y te respondemos a la brevedad.">
+          <h3>Escribinos</h3>
+          <label class="field"><span>Nombre</span><input required name="nombre" autocomplete="name" /></label>
+          <label class="field"><span>Email o teléfono</span><input required name="contacto" /></label>
+          <label class="field">
+            <span>Motivo</span>
+            <select name="motivo"><option>Quiero comprar</option><option>Quiero alquilar</option><option>Quiero vender o alquilar mi propiedad</option><option>Otro</option></select>
+          </label>
+          <label class="field"><span>Mensaje</span><textarea name="mensaje" rows="4"></textarea></label>
+          <button class="btn btn--primary btn--block" type="submit">Enviar consulta</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a class="brand brand--light" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26 12 10l5 8 4-5 9 13Z" fill="currentColor"/><circle cx="24" cy="7" r="3" fill="var(--accent)"/></svg>
+          <span>Cerro <b>Propiedades</b></span>
+        </a>
+        <p>Martillera responsable: Laura Méndez · Mat. 1234 · Colegio de Corredores Públicos de Mendoza.</p>
+      </div>
+      <div>
+        <h4>Propiedades</h4>
+        <ul>
+          <li><a href="#propiedades" data-quick-op="venta">En venta</a></li>
+          <li><a href="#propiedades" data-quick-op="alquiler">En alquiler</a></li>
+          <li><a href="#propiedades" data-quick-op="temporario">Temporarios</a></li>
+          <li><a href="#emprendimientos">Emprendimientos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>La inmobiliaria</h4>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#tasacion">Tasaciones</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Seguinos</h4>
+        <ul>
+          <li><a href="#" data-demo="Acá va el link a Instagram de la inmobiliaria.">Instagram</a></li>
+          <li><a href="#" data-demo="Acá va el link a Facebook de la inmobiliaria.">Facebook</a></li>
+          <li><a href="#" data-demo="Acá va el canal de YouTube con recorridos de propiedades.">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© 2026 Cerro Propiedades. Sitio de demostración.</span>
+      <span>Diseño y desarrollo: <a href="https://landing-page-josequispe.vercel.app" target="_blank" rel="noopener">Jose Quispe</a></span>
+    </div>
+  </footer>
+
+  <button class="wa-float" data-demo="En el sitio real, este botón abre WhatsApp con un mensaje ya escrito." aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+  </button>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

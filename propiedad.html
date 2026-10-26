@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Propiedad · Cerro Propiedades</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-detail">
+  <div class="demo-bar">
+    Sitio de demostración desarrollado por <a href="https://landing-page-josequispe.vercel.app" target="_blank" rel="noopener">Jose Quispe</a>. Propiedades y datos ficticios.
+  </div>
+
+  <header class="header header--solid" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Cerro Propiedades, inicio">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26 12 10l5 8 4-5 9 13Z" fill="currentColor"/><circle cx="24" cy="7" r="3" fill="var(--accent)"/></svg>
+        <span>Cerro <b>Propiedades</b></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
+      <nav class="nav" id="nav">
+        <a href="index.html#propiedades">Propiedades</a>
+        <a href="index.html#emprendimientos">Emprendimientos</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a class="btn btn--accent btn--sm" href="index.html#tasacion">Tasá tu propiedad</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container detail" id="detail">
+    <nav class="breadcrumb" aria-label="Ruta">
+      <a href="index.html">Inicio</a> <span>/</span>
+      <a href="index.html#propiedades" id="bc-op"></a> <span>/</span>
+      <span id="bc-title"></span>
+    </nav>
+
+    <div class="detail__head">
+      <div>
+        <div class="detail__badges" id="d-badges"></div>
+        <h1 id="d-title"></h1>
+        <p class="muted"><svg class="icon"><use href="#i-pin"/></svg> <span id="d-address"></span></p>
+      </div>
+      <div class="detail__actions">
+        <button class="btn btn--ghost btn--sm" id="d-fav"><svg class="icon"><use href="#i-heart"/></svg> <span>Guardar</span></button>
+        <button class="btn btn--ghost btn--sm" id="d-share"><svg class="icon"><use href="#i-share"/></svg> Compartir</button>
+      </div>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <button class="gallery__main" id="g-main" aria-label="Ver fotos en pantalla completa">
+        <img id="g-main-img" alt="" />
+        <span class="gallery__count"><svg class="icon"><use href="#i-camera"/></svg> <span id="g-count"></span></span>
+      </button>
+      <div class="gallery__thumbs" id="g-thumbs"></div>
+    </div>
+
+    <div class="detail__layout">
+      <div class="detail__main">
+        <div class="price-box">
+          <div>
+            <small id="d-op-label"></small>
+            <p class="price" id="d-price"></p>
+            <small class="muted" id="d-exp"></small>
+          </div>
+          <small class="muted">Código <b id="d-code"></b></small>
+        </div>
+
+        <ul class="specs" id="d-specs"></ul>
+
+        <section class="detail__block">
+          <h2>Descripción</h2>
+          <p id="d-desc"></p>
+        </section>
+
+        <section class="detail__block">
+          <h2>Características</h2>
+          <ul class="tags" id="d-features"></ul>
+        </section>
+
+        <section class="detail__block">
+          <h2>Ficha técnica</h2>
+          <dl class="table" id="d-table"></dl>
+        </section>
+
+        <section class="detail__block">
+          <h2>Ubicación</h2>
+          <p class="muted" id="d-zone"></p>
+          <div class="map map--tall"><iframe title="Mapa de la propiedad" loading="lazy" id="d-map"></iframe></div>
+        </section>
+
+        <section class="detail__block calc">
+          <h2>Simulá tu crédito</h2>
+          <p class="muted">Cálculo orientativo con sistema francés. Consultá condiciones vigentes con tu banco.</p>
+          <div class="calc__grid">
+            <label class="field"><span>Anticipo (%)</span><input type="range" min="20" max="80" step="5" value="30" id="c-down" /><b id="c-down-v"></b></label>
+            <label class="field"><span>Plazo (años)</span><input type="range" min="5" max="30" step="5" value="20" id="c-years" /><b id="c-years-v"></b></label>
+            <label class="field"><span>Tasa anual (%)</span><input type="range" min="3" max="12" step="0.5" value="5" id="c-rate" /><b id="c-rate-v"></b></label>
+          </div>
+          <p class="calc__result">Cuota estimada: <b id="c-result"></b></p>
+        </section>
+      </div>
+
+      <aside class="detail__aside">
+        <div class="card agent">
+          <div class="person">
+            <span class="avatar">LM</span>
+            <div><b>Laura Méndez</b><small>Martillera · Mat. 1234</small></div>
+          </div>
+          <form class="form" id="lead-form">
+            <label class="field"><span>Nombre</span><input required name="nombre" autocomplete="name" /></label>
+            <label class="field"><span>Teléfono</span><input required name="tel" type="tel" autocomplete="tel" /></label>
+            <label class="field"><span>Mensaje</span><textarea name="mensaje" rows="4" id="lead-msg"></textarea></label>
+            <button class="btn btn--primary btn--block" type="submit">Consultar por esta propiedad</button>
+          </form>
+          <button class="btn btn--wa btn--block" data-demo="En el sitio real se abre WhatsApp con el código de la propiedad ya escrito.">
+            <svg class="icon"><use href="#i-wa"/></svg> Consultar por WhatsApp
+          </button>
+          <button class="btn btn--ghost btn--block" data-demo="Elegí día y horario y te confirmamos la visita por WhatsApp.">
+            <svg class="icon"><use href="#i-calendar"/></svg> Agendar visita
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <section class="section section--flush">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">También te puede interesar</p>
+          <h2>Propiedades similares</h2>
+        </div>
+      </div>
+      <div class="grid" id="similar"></div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" aria-label="Cerrar">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Foto anterior">‹</button>
+    <img alt="" id="lb-img" />
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Foto siguiente">›</button>
+    <span class="lightbox__count" id="lb-count"></span>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© 2026 Cerro Propiedades. Sitio de demostración.</span>
+      <span>Diseño y desarrollo: <a href="https://landing-page-josequispe.vercel.app" target="_blank" rel="noopener">Jose Quispe</a></span>
+    </div>
+  </footer>
+
+  <div class="mobile-cta">
+    <button class="btn btn--wa" data-demo="En el sitio real se abre WhatsApp con el código de la propiedad ya escrito."><svg class="icon"><use href="#i-wa"/></svg> WhatsApp</button>
+    <a class="btn btn--primary" href="#lead-form">Consultar</a>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
